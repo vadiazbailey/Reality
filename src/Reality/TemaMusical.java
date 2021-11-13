@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 public class TemaMusical {
 	//Atributos
-	private String titulo;
-	private String idioma;
+	private String titulo, idioma;
 	private ArrayList<String> generosMusicalesPertenecientes;
 	private ArrayList<String> instumentosMusicales;
 	
@@ -22,19 +21,26 @@ public class TemaMusical {
 		return titulo;
 	}
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-
 	public String getIdioma() {
 		return idioma;
 	}
 
-	public void setIdioma(String idioma) {
-		this.idioma = idioma;
-	}
-	
 	public void addGeneroMusical(String genero){
 		generosMusicalesPertenecientes.add(genero);
 	}
+	
+	public void addInstrumentoMusical(String instrumento){
+		instumentosMusicales.add(instrumento);
+	}
+	
+	@Override
+	public boolean equals(Object o1) {
+		try {
+			TemaMusical t1 = (TemaMusical) o1;
+			return this.getTitulo().equals(t1.getTitulo()) && this.getIdioma().equals(t1.getIdioma());
+		}
+		catch(Exception e){
+			return false;
+		}
+	}	
 }
