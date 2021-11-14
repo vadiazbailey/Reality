@@ -23,10 +23,6 @@ public class Participante extends Banda{
 		this.edad = edad;
 	}
 
-
-
-
-
 	//Getters & Setters
 	@Override
 	public int getEdad() {
@@ -35,10 +31,6 @@ public class Participante extends Banda{
 	
 	public void setEdad(int edad) {
 		this.edad = edad;
-	}
-	
-	public String getNombre() {
-		return nombre;
 	}
 
 	public String getApellido() {

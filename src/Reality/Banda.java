@@ -11,6 +11,8 @@ public abstract class Banda {
 	private ArrayList<TemaMusical> canciones;
 	protected String nombre;	
 	
+	
+	//----------------------Preguntar-----------------------------
 	public Banda(String nombre) {
 		canciones= new ArrayList<>();
 		this.nombre = nombre;
@@ -20,16 +22,17 @@ public abstract class Banda {
 		if(!canciones.contains(c))
 			canciones.add(c);
 		}
+	//-------------------------------------------------------------
 	
-	
-	public abstract String getNombre();
+	public abstract int getEdad();
 	public abstract ArrayList<String> listadoInstrumentos();
 	public abstract ArrayList<String> listadoGenerosPreferencia();
 	public abstract ArrayList<String> listadoIdiomasPreferencia();
-	public abstract int getEdad();
-	
-	
 	public abstract ArrayList<Banda> buscar(Filtro f);
+	
+	public String getNombre() {
+		return this.nombre;
+	}
 	
 	public ArrayList<Banda> buscarOrdenado(Filtro f, Comparator<Banda> c){
 		ArrayList<Banda> listado = this.buscar(f);

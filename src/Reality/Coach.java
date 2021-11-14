@@ -1,26 +1,34 @@
 package Reality;
 
 import java.util.ArrayList;
+import java.util.Collections;
+
+import filtros.Filtro;
 
 public class Coach {
+	
 	//Atributos
 	private String nombre;
 	protected ArrayList<Banda> equipo;
 	
+	//Constructor
 	public Coach(String nombre) {
 		this.nombre = nombre;
 		equipo = new ArrayList<>();
 	}
 	
 	public void addMiembroEquipo(Banda participante) {
+	//Agregamos control para evitar reeticion de participantes
 		if(!equipo.contains(participante))
 			equipo.add(participante);
 	}
 
+	//Getters & setters
 	public String getNombre() {
 		return nombre;
 	}
 	
+	//---------------------PREGUNTAR-------------------------------
 	public ArrayList<String> getInstrumentosEquipo(){
 		ArrayList<String> listaInstrumentos = new ArrayList<>();
 		for (Banda b : equipo) {
@@ -54,8 +62,10 @@ public class Coach {
 					listaGeneros.add(g);
 			}
 		}
+		Collections.sort(listaGeneros);
 		return listaGeneros;
 	}
+	//----------------------------------------------------------------
 	
 	public int getPromedioEdad() {
 		int aux = 0;
@@ -63,5 +73,12 @@ public class Coach {
 			aux+= b.getEdad();
 		}
 		return aux/equipo.size();
+	}
+	
+	public ArrayList<Banda> busqueda(Filtro f){
+		ArrayList<Banda> listado = new ArrayList<>();
+		for (Banda b : equipo) 
+			listado.addAll(b.buscar(f));
+		return listado;
 	}
 }
