@@ -33,6 +33,14 @@ public class TemaMusical {
 		instumentosMusicales.add(instrumento);
 	}
 	
+	public boolean tieneGenero(String genero) {
+		return this.generosMusicalesPertenecientes.contains(genero);
+	}
+	
+	public boolean tieneInstrumento(String instrumento) {
+		return this.instumentosMusicales.contains(instrumento);
+	}
+	
 	@Override
 	public boolean equals(Object o1) {
 		try {

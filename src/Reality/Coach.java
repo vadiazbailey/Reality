@@ -2,6 +2,7 @@ package Reality;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 import filtros.Filtro;
 
@@ -79,6 +80,12 @@ public class Coach {
 		ArrayList<Banda> listado = new ArrayList<>();
 		for (Banda b : equipo) 
 			listado.addAll(b.buscar(f));
+		return listado;
+	}
+	
+	public ArrayList<Banda> listadoOrdenado(Filtro f, Comparator<Banda> criterio){
+		ArrayList<Banda> listado = this.busqueda(f);
+		Collections.sort(listado, criterio);		
 		return listado;
 	}
 }
