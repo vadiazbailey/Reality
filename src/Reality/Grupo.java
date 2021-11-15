@@ -87,4 +87,17 @@ public class Grupo extends Banda {
 		return listado;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		try {
+			Grupo aux = (Grupo) obj;
+			return this.getNombre().equals(aux.getNombre()) && this.getEdad()==(aux.getEdad());
+		}
+		catch(Exception e){
+			return false;
+		}
+	}
+	
+	
+
 }

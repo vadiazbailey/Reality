@@ -88,4 +88,24 @@ public class Coach {
 		Collections.sort(listado, criterio);		
 		return listado;
 	}
+
+	public Banda elegirParticipante(Comparator<Banda> criterioBatalla) {
+		/*Creamos una copia del listado Equipo para ordenarla en base al criterio
+		y seleccionar al mejor participante (tomamos el último, porque por defecto
+		el sort ordena de menor a mayor)*/
+		ArrayList<Banda> listado = new ArrayList<>();
+		listado.addAll(equipo);
+		Collections.sort(listado, criterioBatalla);
+		return listado.get(listado.size()-1);
+	}
+
+	public void eliminarParticipante(Banda participante) {
+		this.equipo.remove(participante);
+	}
+	
+	
+	
+	
+	
+	
 }
