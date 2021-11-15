@@ -92,4 +92,19 @@ public class Participante extends Banda{
 		}
 		return listado;
 	}
+
+	@Override
+	public int cantidadQueToca(String instrumento) {
+		if(this.esIstrumentoPreferente(instrumento))
+			return 1;
+		return 0;
+	}
+
+	@Override
+	public String toString() {
+		return "Participante [nombre=" + super.getNombre() + ", apellido=" + apellido + ", edad=" + edad + ", generosDePreferencia="
+				+ generosDePreferencia + ", idiomasQueCanta=" + idiomasQueCanta + ", instrumentosQueToca="
+				+ instrumentosQueToca + "]";
+	}
+
 }

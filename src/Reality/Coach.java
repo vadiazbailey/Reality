@@ -29,7 +29,7 @@ public class Coach {
 		return nombre;
 	}
 	
-	//---------------------PREGUNTAR-------------------------------
+	//---------------------PREGUNTAR por codigo repetido-------------------------------
 	public ArrayList<String> getInstrumentosEquipo(){
 		ArrayList<String> listaInstrumentos = new ArrayList<>();
 		for (Banda b : equipo) {
@@ -102,10 +102,10 @@ public class Coach {
 	public void eliminarParticipante(Banda participante) {
 		this.equipo.remove(participante);
 	}
-	
-	
-	
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return "Coach [nombre=" + nombre + ", equipo=" + equipo + "]";
+	}
+
 }

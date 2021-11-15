@@ -12,7 +12,7 @@ public class Grupo extends Banda {
 	private ArrayList<Banda> participantes;
 	
 	//Constructor
-	public Grupo(String nombre, ArrayList<Banda> participantes) {
+	public Grupo(String nombre) {
 		super(nombre);
 		participantes = new ArrayList<>();
 	}
@@ -97,7 +97,18 @@ public class Grupo extends Banda {
 			return false;
 		}
 	}
-	
-	
 
+	@Override
+	public int cantidadQueToca(String instrumento) {
+		int cantidad = 0;
+		for (Banda participante : participantes) {
+			cantidad += participante.cantidadQueToca(instrumento);
+		}
+		return cantidad;
+	}
+
+	@Override
+	public String toString() {
+		return "Grupo [participantes=" + super.getNombre() + "]";
+	}	
 }

@@ -50,5 +50,23 @@ public class TemaMusical {
 		catch(Exception e){
 			return false;
 		}
-	}	
+	}
+
+	public boolean tieneAlgunGenero(ArrayList<String> listadoGenerosPreferencia) {
+		for (String genero : listadoGenerosPreferencia) {
+			if(this.tieneGenero(genero))
+				return true;
+		}
+		return false;
+	}
+	
+	public boolean tieneAlgunInstrumento(Banda b) {
+		ArrayList<String> aux = b.listadoInstrumentos();
+		for(String instrumento: aux) {
+			if(this.tieneInstrumento(instrumento))
+				return true;
+		}
+	return false;
+	}
 }
+

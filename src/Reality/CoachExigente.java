@@ -1,3 +1,4 @@
+
 package Reality;
 
 import Estrategias.*;
@@ -9,11 +10,11 @@ public class CoachExigente extends Coach{
 
 	
 	
-	public CoachExigente(String nombre, Estrategia criterio1, Estrategia criterio2, Estrategia criterio3) {
+	public CoachExigente(String nombre) {
 		super(nombre);
-		this.criterio1 = new EstrategiaInstrumento("Bateria");
-		this.criterio2 = new EstrategiaAnd(new EstrategiaIdioma("Ingles"), new EstrategiaIdioma("Español"));
-		this.criterio3 = new EstrategiaGenero("Pop");
+		this.criterio1 = new EstrategiaInstrumento("bateria");
+		this.criterio2 = new EstrategiaAnd(new EstrategiaIdioma("ingles"), new EstrategiaIdioma("español"));
+		this.criterio3 = new EstrategiaGenero("pop");
 	}
 
 	@Override
@@ -21,6 +22,7 @@ public class CoachExigente extends Coach{
 		//Si cumple los 3 criterios que solicita acepta al participante
 		if(criterio1.criterioSeleccion(b) && criterio2.criterioSeleccion(b) && criterio3.criterioSeleccion(b))
 			equipo.add(b);
+		else {System.out.println("El participante " + b.getNombre() + " no cumple los requisitos");}
 	}
 
 	//Set de los criterios

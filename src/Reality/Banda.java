@@ -29,9 +29,24 @@ public abstract class Banda {
 	public abstract ArrayList<String> listadoGenerosPreferencia();
 	public abstract ArrayList<String> listadoIdiomasPreferencia();
 	public abstract ArrayList<Banda> buscar(Filtro f);
+	public abstract int cantidadQueToca(String instrumento);
 	
 	public String getNombre() {
 		return this.nombre;
+	}
+	
+	public boolean sePuedeTocar(TemaMusical cancion) {
+		/*puede ser interpretado por una banda/grupo/solista si puede cantar
+		 *  en el idioma del
+		tema y al menos uno de los géneros está entre las preferencias */
+		return this.esIdiomaPreferente(cancion.getIdioma()) && cancion.tieneAlgunGenero(this.listadoGenerosPreferencia());
+	}
+	
+	public boolean temaFinal(TemaMusical cancion) {
+		/*para los temas de la final se debe chequear además de lo anterior que la
+		 * banda/grupo/solista posea al menos un miembro que toque un instrumento
+		 *  de los necesarios para interpretar el tema. */
+		return this.sePuedeTocar(cancion) && cancion.tieneAlgunInstrumento(this);
 	}
 	
 	public ArrayList<Banda> buscarOrdenado(Filtro f, Comparator<Banda> c){
