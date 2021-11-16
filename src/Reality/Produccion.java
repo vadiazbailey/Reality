@@ -7,10 +7,12 @@ import Criterios.*;
 public class Produccion {
 	
 	//Atributos
+	private ArrayList<Coach> coaches;
 	private ArrayList<TemaMusical> temasDisponibles;
 	private Comparator<Banda> criterioBatalla;
 	
 	public Produccion() {
+		coaches = new ArrayList<>();
 		temasDisponibles = new ArrayList<>();
 		Comparator<Banda> genero = new CriterioGeneros();
 		Comparator<Banda> edad = new CriterioEdad();
@@ -34,7 +36,7 @@ public class Produccion {
 		this.criterioBatalla = criterioBatalla;
 	}
 	
-	public void batalla(Coach coach1, Coach coach2, Comparator<Banda> criterioBatalla) {
+	public void batalla(Coach coach1, Coach coach2) {
 		
 		if(!coach1.equipo.isEmpty() && !coach2.equipo.isEmpty()) {
 			Banda participante1 = coach1.elegirParticipante(criterioBatalla);
@@ -42,13 +44,17 @@ public class Produccion {
 			
 			int resultado = criterioBatalla.compare(participante1, participante2);
 			
-			if(resultado == 1) {
+			if(resultado >= 1) {
 				coach2.eliminarParticipante(participante2);
 				System.out.println("Gano el participante: " + participante1.getNombre());
+				if(!this.sigueCertamen())
+					System.out.println("El coach " + coach1.getNombre() + " ha ganado el certamen.");
 			}
-			else if(resultado == -1){
+			else if(resultado <= -1){
 				coach1.eliminarParticipante(participante1);
 				System.out.println("Gano participante: " + participante2.getNombre());
+				if(!this.sigueCertamen())
+					System.out.println("El coach " + coach2.getNombre() + " ha ganado el certamen.");
 			}
 		}
 		else {
@@ -60,4 +66,19 @@ public class Produccion {
 			}
 		}
 	}
+	
+	public void addCoach(Coach c) {
+		if(!coaches.contains(c))
+			this.coaches.add(c);
+	}
+	
+	public boolean sigueCertamen() {
+		int siguen = 0;
+		for (Coach coach : coaches) {
+			if(coach.tieneParticipantes())
+				siguen++;
+		}
+		return siguen > 1;
+	}
+	
 }

@@ -102,7 +102,26 @@ public class Coach {
 	public void eliminarParticipante(Banda participante) {
 		this.equipo.remove(participante);
 	}
+	
+	public boolean tieneParticipantes() {
+		return !equipo.isEmpty();
+	}
+	
+	public int cantidadParticipantes() {
+		return equipo.size();
+	}
 
+	@Override
+	public boolean equals(Object o1) {
+		try {
+			Coach c1 = (Coach) o1;
+			return this.getNombre().equals(c1.getNombre());
+		}
+		catch(Exception e){
+			return false;
+		}
+	}
+	
 	@Override
 	public String toString() {
 		return "Coach [nombre=" + nombre + ", equipo=" + equipo + "]";

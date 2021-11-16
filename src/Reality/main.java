@@ -23,10 +23,17 @@ public class main {
 		
 		//participantes equipo 1:
 		Coach lali = new Coach("lali");
+		produccion.addCoach(lali);
 		Participante pocha = new Participante("pocha", 28,"diaz");
 		Participante caro = new Participante("caro", 24, "navarrete");
 		Participante beltran = new Participante("beltran",21, "peña");
 		Participante chancha = new Participante("juan", 29, "mauro");
+		pocha.addGenero("cumbia");
+		pocha.addGenero("romantico");
+		caro.addGenero("cumbia");
+		caro.addGenero("romantico");
+		pocha.addIdioma("español");
+		caro.addIdioma("italiano");
 		Grupo teclas = new Grupo("teclas");
 		teclas.addParticipante(pocha);
 		teclas.addParticipante(caro);
@@ -36,10 +43,11 @@ public class main {
 		
 		//participantes equipo2:
 		CoachExigente montaner = new CoachExigente("montaner");
+		produccion.addCoach(montaner);
 		Participante juampi = new Participante("juan", 23,"correa");
 		Participante trini = new Participante("trini",23,"monsalvo");
 		Participante mela = new Participante("mela",23,"pedemonte");
-		Participante anto = new Participante("anto",26,"miculic");
+		Participante anto = new Participante("anto",25,"miculic");
 		Participante lucas = new Participante("lucas",21,"duana");
 		Grupo losOtros = new Grupo("losOtros");
 		losOtros.addParticipante(mela);
@@ -60,11 +68,21 @@ public class main {
 		anto.addIdioma("español");
 		anto.addIdioma("ingles");
 		anto.addGenero("pop");
+		anto.addGenero("cumbia");
 		montaner.addMiembroEquipo(juampi);
 		montaner.addMiembroEquipo(lucas);
 		montaner.addMiembroEquipo(anto);
 		montaner.addMiembroEquipo(losOtros);
 		System.out.println(montaner.toString());
+		
+		//Batallas
+		produccion.batalla(lali, montaner);
+		System.out.println("Lali: " + lali.cantidadParticipantes());
+		System.out.println("Montaner: " + montaner.cantidadParticipantes());
+		produccion.batalla(lali, montaner);
+		System.out.println(lali.cantidadParticipantes());
+		System.out.println(montaner.cantidadParticipantes());
+		produccion.batalla(lali, montaner);
 	}
 
 }
