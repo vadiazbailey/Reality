@@ -49,7 +49,7 @@ ___
 [Resumen](https://drive.google.com/drive/u/0/folders/1FRiQV8IYcf6fnF-XO1EXlHaOokCDjoZk)
 
 <https://drive.google.com/drive/u/0/folders/1FRiQV8IYcf6fnF-XO1EXlHaOokCDjoZk>
-![Imagen](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.adslzone.net%2Fcomo-se-hace%2Fphotoshop%2Fquitar-fondo-imagen%2F&psig=AOvVaw24FJbSDnU9da6BfYihO-hd&ust=1664298265638000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCPCk-ar4svoCFQAAAAAdAAAAABAD.jpg "Imagen")
+![Imagen](https://files.fm/thumb_show.php?i=w78fdrb62 "Imagen")
 
 
  
